@@ -47,9 +47,7 @@ module.exports = {
   parseFooterTags: true,
   getGitReferenceFromVersion: 'v-prefix',
   incrementVersion: 'semver',
-  updateVersion: (cwd, version, callback) => {
-    applyEachSeries([commit, tag, push], cwd, version, callback);
-  },
+  updateVersion: [ commit, tag, push ],
 
   // Always add the entry to the top of the Changelog, below the header.
   addEntryToChangelog: {
