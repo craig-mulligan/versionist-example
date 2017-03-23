@@ -7,7 +7,7 @@ var getAuthor = (commitHash) => {
 }
 
 var commit = (cwd, version, callback) => {
-  console.log('commit...');
+  console.log('Committing...');
   exec(`git commit -a -m "v${version}"`, (err, data) => {
     if (err) {
       callback(err);
@@ -47,9 +47,9 @@ module.exports = {
   updateVersion: (cwd, version, callback) => {
     applyEachSeries([commit, tag, push], cwd, version, (err, data) => {
       if (err) {
-        throw err;
+        callback(err);
       }
-      callback();
+      callback(null, data);
     });
   },
 
