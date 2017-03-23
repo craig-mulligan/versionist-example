@@ -5,6 +5,10 @@ This is my project's CHANGELOG file.
 
 ## v0.1.0 - 2017-03-23
 
+## v0.1.4 - 2017-03-23
+
+* Another one [craig-mulligan]
+
 ## v0.1.3 - 2017-03-23
 
 * Branch test [craig-mulligan]
