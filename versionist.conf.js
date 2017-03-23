@@ -48,12 +48,7 @@ module.exports = {
   getGitReferenceFromVersion: 'v-prefix',
   incrementVersion: 'semver',
   updateVersion: (cwd, version, callback) => {
-    applyEachSeries([commit, tag, push], cwd, version, (err, data) => {
-      if (err) {
-        callback(err);
-      }
-      callback(null, data);
-    });
+    applyEachSeries([commit, tag, push], cwd, version, callback);
   },
 
   // Always add the entry to the top of the Changelog, below the header.
