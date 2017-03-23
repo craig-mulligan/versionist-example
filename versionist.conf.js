@@ -7,11 +7,12 @@ var getAuthor = (commitHash) => {
 }
 
 var commit = (cwd, version, callback) => {
-  console.log('Committing...');
+  console.log(`Committing...v${version}`);
   exec(`git commit -a -m "v${version}"`, (err, data) => {
     if (err) {
       callback(err);
     }
+    console.log('commited')
     callback(null, data);
   });
 }
@@ -22,6 +23,7 @@ var tag = (cwd, version, callback) => {
     if (err) {
       callback(err);
     }
+    console.log('Tagged')
     callback(null, data);
   });
 }
@@ -32,6 +34,7 @@ var push = (cwd, version, callback) => {
     if (err) {
       callback(err);
     }
+    console.log('Pushed')
     callback(null, data);
   });
 }
