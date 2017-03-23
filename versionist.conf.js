@@ -30,7 +30,7 @@ var tag = (cwd, version, callback) => {
 
 var push = (cwd, version, callback) => {
   console.log('Pushing...');
-  exec(`git push --tags`, (err, data) => {
+  exec(`git push origin master --tags`, (err, data) => {
     if (err) {
       callback(err);
     }
