@@ -30,7 +30,7 @@ before_install:
 script:
   - docker run --rm --privileged multiarch/qemu-user-static:register
   - if [ "$BASEIMAGE" ] ; then sed -i "s/^FROM .*/FROM $BASEIMAGE/" Dockerfile ; fi
-  - docker build -t $IMAGE:$TRAVIS_BRANCH .
+  - docker build -t $DOCKER_IMAGE:$TRAVIS_BRANCH .
   - if [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then
       mkdir -p $(dirname ${DOCKER_CACHE_FILE});
       docker save $(docker history -q $IMAGE:$TRAVIS_BRANCH | grep -v '<missing>') | gzip > ${DOCKER_CACHE_FILE};
@@ -38,7 +38,7 @@ script:
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-  - docker push $IMAGE:$TRAVIS_BRANCH;
+  - docker push $DOCKER_IMAGE:$TRAVIS_BRANCH;
   - if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]; then exit 0; fi
   - npm i
   - versionist
