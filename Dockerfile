@@ -1,1 +1,3 @@
-FROM resin/asdf
+FROM busybox
+
+RUN echo 'hii!'
