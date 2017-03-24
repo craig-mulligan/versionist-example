@@ -1,0 +1,23 @@
+{
+  "name": "versionist-example",
+  "version": "1.1.0",
+  "description": "testyadf",
+  "main": "versionist.conf.js",
+  "dependencies": {
+    "async": "2.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craig-mulligan/versionist-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/craig-mulligan/versionist-example/issues"
+  },
+  "homepage": "https://github.com/craig-mulligan/versionist-example#readme"
+}
