@@ -6,6 +6,7 @@ var getAuthor = (commitHash) => {
   return execSync(`git show --quiet --format="%an" ${commitHash}`, { encoding: 'utf8' }).replace('\n', '');
 }
 
+console.log(plugins.commit)
 module.exports = {
   // This setup allows the editing and parsing of footer tags to get version and type information,
   // as well as ensuring tags of the type 'v<major>.<minor>.<patch>' are used.
