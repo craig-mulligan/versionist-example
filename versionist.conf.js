@@ -7,7 +7,7 @@ var getAuthor = (commitHash) => {
 }
 
 process.env.DOCKER_IMAGE = 'craycraig/versionist-example';
-console.log(plugins)
+
 module.exports = {
   // This setup allows the editing and parsing of footer tags to get version and type information,
   // as well as ensuring tags of the type 'v<major>.<minor>.<patch>' are used.
