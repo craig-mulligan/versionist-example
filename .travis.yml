@@ -14,8 +14,8 @@ env:
     - COMPONENT=versionist-example
     - DOCKER_CACHE_FILE=/home/travis/docker-cache/cache.tar.gz
   matrix:
-    - IMAGE=agileiot/$COMPONENT-armv7l
-    - IMAGE=agileiot/$COMPONENT-x86_64
+    - DOCKER_IMAGE=agileiot/$COMPONENT-armv7l
+    - DOCKER_IMAGE=agileiot/$COMPONENT-x86_64
       BASEIMAGE=resin\\/nuc-node:7.2.1
 
 before_install:
@@ -35,7 +35,5 @@ script:
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
   - docker push $IMAGE:$TRAVIS_BRANCH;
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      docker tag $IMAGE:$TRAVIS_BRANCH $IMAGE;
-      docker push $IMAGE;
-    fi
+  if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]; then exit 0; fi
+  - versionist
