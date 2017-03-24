@@ -1,3 +1,3 @@
 FROM busybox
 
-RUN echo 'hii!'
+RUN echo 'hi!'
