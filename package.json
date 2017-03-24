@@ -3,10 +3,10 @@
   "version": "1.1.0",
   "description": "testyadf",
   "main": "versionist.conf.js",
-  "dependencies": {
-    "async": "2.1.5"
+  "devDependencies": {
+    "versionist": "2.8.1",
+    "versionist-plugins": "1.1.1"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
