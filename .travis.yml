@@ -11,8 +11,6 @@ cache:
   directories:
     - $HOME/docker-cache/
 
-secure: "JKDYv9W0rDiq7mFFFLJkHfFaXrpHRf3Uo2BccyyZ9V5IWR7sl1sZed/U8BWg+sXNwHMYwSCZ/eXR4UhV5xFvWPw4fLkG/dBPK3WHf3sIreL5vLbG4hV/10o7wRSEBPaGWiyvzOmAxym0+DV/ySQsDG9dLdBybozX5MKd2AoOrDcmOemt1Vaxt3a1V7wDP7HStsAiehboWWtwbLC8h+6pRR9M7Kv3qNRKC6tr3QJH05VCOy9vDoH0mNgS6KZ7KScqsiFHcDH/Z2s2EbOWljuRcmiMjrgq7eZJ55Xkjv4Obn36JgXP9e4b5c4hRAA7eTlvySVuGXRtiPpJafnYhA6d9ngyAyK2URbF7SesbC/ujb3/UAlYUgI4NREyEzsF6fiLLauWfPUyfbh+sxPa8fabCXhMBcKswFLnuLJvp5+9aqX5qbHE8SndmaOs+Om+7iksQ2ddBZ+nla75s61zhADS1MPbJui6A0Jv5viZlbqVK7mgFqaB2j+0KGTLxo0siLQ7zw6K3+nvW1CrRBknB+6EhcS/MrPbunpAQdIB2yMyeY7vgsfkIOgQWhoVVePeNt8IoH8o/8LKJBWNMjLJ13SmdSIt3AeKrJBZCYhNugPVOc0Oxwr8GZ60tue5jRPBx+b1pilBQEWwsvBARKbOJqUbYV459Dezv4DxMgxk7V/CBUk="
-
 env:
   global:
     - COMPONENT=versionist-example
