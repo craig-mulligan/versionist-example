@@ -28,6 +28,8 @@ before_install:
     fi
 
 script:
+  - node versionist.conf.js
+  - versionist -d
   - docker run --rm --privileged multiarch/qemu-user-static:register
   - if [ "$BASEIMAGE" ] ; then sed -i "s/^FROM .*/FROM $BASEIMAGE/" Dockerfile ; fi
   - docker build -t $DOCKER_IMAGE:$TRAVIS_BRANCH .
