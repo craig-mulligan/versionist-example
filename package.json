@@ -22,6 +22,6 @@
   "homepage": "https://github.com/craig-mulligan/versionist-example#readme",
   "dependencies": {
     "versionist": "git://github.com/resin-io/versionist.git#agile",
-    "versionist-plugins": "git+https://git@github.com/craig-mulligan/versionist-plugins.git"
+    "versionist-plugins": "*"
   }
 }
