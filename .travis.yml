@@ -19,8 +19,6 @@ env:
     - DOCKER_CACHE_FILE=/home/travis/docker-cache/cache.tar.gz
   matrix:
     - DOCKER_IMAGE=craycraig/$COMPONENT-armv7l
-    - DOCKER_IMAGE=craycraig/$COMPONENT-x86_64
-      BASEIMAGE=resin\\/nuc-node:7.2.1
 
 before_install:
   - if [ -f $DOCKER_CACHE_FILE ]; then
