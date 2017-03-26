@@ -28,8 +28,8 @@ before_install:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
 
 script:
-  - docker build -t $DOCKER_IMAGE:$TRAVIS_PULL_REQUEST_BRANCH .;
-  - if [[ ${TRAVIS_PULL_REQUEST} == "true" ]]; then
+  - if [[ ${TRAVIS_PULL_REQUEST} != "false" ]]; then
+      docker build -t $DOCKER_IMAGE:$TRAVIS_PULL_REQUEST_BRANCH .;
       echo $TRAVIS_PULL_REQUEST_BRANCH;
       versionist -d;
     fi
@@ -47,7 +47,6 @@ after_success:
   - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -z "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
       echo "noop";
     fi
-  - docker push $DOCKER_IMAGE:$TRAVIS_BRANCH;
   - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -n "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
       docker push docker push $DOCKER_IMAGE:$TRAVIS_TAG;
     fi
