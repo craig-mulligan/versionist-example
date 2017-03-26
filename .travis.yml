@@ -41,7 +41,7 @@ script:
     fi
 
 after_success:
-  - if [[ ${TRAVIS_PULL_REQUEST} == "true" ]]; then
+  - if [[ ${TRAVIS_PULL_REQUEST} != "false" ]]; then
       docker push $DOCKER_IMAGE:$TRAVIS_PULL_REQUEST_BRANCH;
     fi
   - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -z "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
