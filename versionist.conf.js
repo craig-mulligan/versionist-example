@@ -16,7 +16,7 @@ module.exports = {
   parseFooterTags: true,
   getGitReferenceFromVersion: 'v-prefix',
   incrementVersion: 'semver',
-  updateVersion: [ plugins.git.commit, plugins.git.tag, plugins.git.push, plugins.docker.build, plugins.docker.push ],
+  updateVersion: [ plugins.git.commit, plugins.git.tag, plugins.git.push ],
 
   // Always add the entry to the top of the Changelog, below the header.
   addEntryToChangelog: {
