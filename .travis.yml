@@ -29,6 +29,8 @@ before_install:
 
 script:
   - echo $TRAVIS_PULL_REQUEST
+  - echo $TRAVIS_TAG
+  - echo $TRAVIS_BRANCH
   - if [[ ${TRAVIS_PULL_REQUEST} != "false" ]]; then
       docker build -t $DOCKER_IMAGE:$TRAVIS_PULL_REQUEST_BRANCH .;
       echo $TRAVIS_PULL_REQUEST_BRANCH;
