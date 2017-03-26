@@ -47,6 +47,6 @@ after_success:
       echo "noop";
     fi
   - docker push $DOCKER_IMAGE:$TRAVIS_BRANCH;
-  - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -n "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]];
+  - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -n "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
       docker push docker push $DOCKER_IMAGE:$TRAVIS_TAG;
     fi
