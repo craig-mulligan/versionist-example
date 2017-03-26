@@ -29,14 +29,14 @@ before_install:
 
 script:
   - if [[ ${TRAVIS_PULL_REQUEST} == "true" ]]; then
-      versionist -d
-      docker build -t $DOCKER_IMAGE:$TRAVIS_PULL_REQUEST_BRANCH .
+      versionist -d;
+      docker build -t $DOCKER_IMAGE:$TRAVIS_PULL_REQUEST_BRANCH .;
     fi
   - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -z "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
-      versionist
+      versionist;
     fi
   - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -n "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
-      docker build -t DOCKER_IMAGE:$TRAVIS_TAG
+      docker build -t DOCKER_IMAGE:$TRAVIS_TAG;
     fi
 
 after_success:
@@ -44,7 +44,7 @@ after_success:
       docker push $DOCKER_IMAGE:$TRAVIS_PULL_REQUEST_BRANCH;
     fi
   - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -z "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
-      echo "noop"
+      echo "noop";
     fi
   - docker push $DOCKER_IMAGE:$TRAVIS_BRANCH;
   - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -n "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]];
