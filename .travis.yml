@@ -29,8 +29,8 @@ before_install:
 
 script:
   - if [[ ${TRAVIS_PULL_REQUEST} == "true" ]]; then
-      echo "YASS"
-      versionist -d
+      echo "YASS" &
+      versionist -d &
       docker build -t $DOCKER_IMAGE:$TRAVIS_PULL_REQUEST_BRANCH .
     fi
   - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -z "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
