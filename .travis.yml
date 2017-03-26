@@ -15,6 +15,7 @@ env:
   global:
     - COMPONENT=versionist-example
     - DOCKER_CACHE_FILE=/home/travis/docker-cache/cache.tar.gz
+    - GITHUB_REPO=${TRAVIS_REPO_SLUG}
   matrix:
     - DOCKER_IMAGE=craycraig/$COMPONENT-armv7l
 
