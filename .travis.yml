@@ -34,10 +34,10 @@ script:
       echo $TRAVIS_PULL_REQUEST_BRANCH;
       versionist -d;
     fi
-  - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -z "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
+  - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -z ${TRAVIS_TAG} && ${TRAVIS_BRANCH} == "master" ]]; then
       versionist;
     fi
-  - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -n "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
+  - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -n ${TRAVIS_TAG} && ${TRAVIS_BRANCH} == "master" ]]; then
       docker build -t DOCKER_IMAGE:$TRAVIS_TAG;
     fi
 
@@ -45,9 +45,9 @@ after_success:
   - if [[ ${TRAVIS_PULL_REQUEST} != "false" ]]; then
       docker push $DOCKER_IMAGE:$TRAVIS_PULL_REQUEST_BRANCH;
     fi
-  - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -z "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
+  - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -z ${TRAVIS_TAG} && ${TRAVIS_BRANCH} == "master" ]]; then
       echo "noop";
     fi
-  - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -n "$TRAVIS_TAG" && ${TRAVIS_BRANCH} == "master" ]]; then
+  - if [[ ${TRAVIS_PULL_REQUEST} == "false" && -n ${TRAVIS_TAG} && ${TRAVIS_BRANCH} == "master" ]]; then
       docker push docker push $DOCKER_IMAGE:$TRAVIS_TAG;
     fi
