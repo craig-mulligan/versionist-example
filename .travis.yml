@@ -26,9 +26,9 @@ before_install:
   - docker run --rm --privileged multiarch/qemu-user-static:register
   - if [ "$BASEIMAGE" ] ; then sed -i "s/^FROM .*/FROM $BASEIMAGE/" Dockerfile ; fi
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - git remote set-url origin "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
 
 script:
-  - git remote set-url origin "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
   - echo $TRAVIS_PULL_REQUEST
   - echo $TRAVIS_TAG
   - echo $TRAVIS_BRANCH
